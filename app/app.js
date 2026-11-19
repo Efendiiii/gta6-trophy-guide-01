@@ -146,10 +146,12 @@ function renderProgress() {
 
 function renderRoadmap() {
   $('stages').innerHTML = STAGES.map((s) => `<li><h3>${s.title}</h3><p>${s.text}</p>
-    <p class="ids">${s.ids.map((id) => { const t = byId(id); return `${earned.has(id) ? '✓' : '○'} ${t ? t.name : id}`; }).join(' · ')}</p></li>`).join('');
+    <p class="ids">${s.ids.map((id) => { const t = byId(id); const label = t ? (isSpoilerHidden(t) ? `Hidden story trophy (${gradeLabel(t.grade)})` : t.name) : id; return `${earned.has(id) ? '✓' : '○'} ${label}`; }).join(' · ')}</p></li>`).join('');
   $('roadmapOrder').innerHTML = ROADMAP_ORDER.map((id) => {
     const t = byId(id);
-    return `<li>${earned.has(id) ? '✓ ' : ''}${t ? t.name : id}${t && t.missable ? ' — missable!' : ''}${t && t.unconfirmed ? ' — unconfirmed' : ''}</li>`;
+    if (!t) return `<li>${id}</li>`;
+    if (isSpoilerHidden(t)) return `<li>Hidden story trophy (${gradeLabel(t.grade)})</li>`;
+    return `<li>${earned.has(id) ? '✓ ' : ''}${t.name}${t.missable ? ' — missable!' : ''}${t.unconfirmed ? ' — unconfirmed' : ''}</li>`;
   }).join('');
 }
 
