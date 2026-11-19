@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GTA VI Trophy Guide &amp; Tracker — 55 PS5 Trophies</title>
+<meta name="description" content="Offline guide and checklist for all 55 Grand Theft Auto VI trophies on PS5: roadmap to platinum, missables, and a guide for every trophy with sources.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <h1>Leonida Trophy Guide</h1>
+    <p class="sub">Grand Theft Auto VI &middot; PlayStation 5 &middot; 55 trophies &middot; offline guide &amp; tracker</p>
+  </div>
+  <div class="themebox">
+    <button id="themeBtn" type="button" aria-label="Toggle dark theme">Dark theme</button>
+  </div>
+</header>
+
+<section class="progress" aria-label="Progress">
+  <div class="big"><span id="earnedCount">0</span><span class="of">/ 55 earned</span></div>
+  <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="barWrap"><div id="barFill"></div></div>
+  <div class="gradebars" id="gradeBars"></div>
+  <p class="nextup" id="nextUp"></p>
+</section>
+
+<nav class="tabs" aria-label="Views">
+  <button type="button" data-view="checklist" class="active">Checklist</button>
+  <button type="button" data-view="roadmap">Roadmap to Platinum</button>
+  <button type="button" data-view="missables">Missables</button>
+</nav>
+
+<main>
+  <section id="view-checklist" class="view">
+    <div class="controls">
+      <label class="search">Search <input id="q" type="search" placeholder="Trophy name or description…" autocomplete="off"></label>
+      <label>Grade
+        <select id="grade">
+          <option value="all">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label>Kind
+        <select id="kind">
+          <option value="all">All kinds</option>
+          <option value="story">Story</option>
+          <option value="activity">Activity</option>
+          <option value="collectible">Collectible</option>
+          <option value="combat">Combat</option>
+          <option value="exploration">Exploration</option>
+          <option value="misc">Misc</option>
+        </select>
+      </label>
+      <label class="check"><input id="earnedOnly" type="checkbox"> Earned only</label>
+      <label class="check"><input id="missableOnly" type="checkbox"> Missable only</label>
+      <label class="check" title="Hide the names and descriptions of story trophies until you earn them"><input id="spoiler" type="checkbox" checked> Hide story spoilers</label>
+    </div>
+    <div class="actions">
+      <button id="exportBtn" type="button">Export progress (JSON)</button>
+      <label class="import">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+      <button id="resetBtn" type="button">Reset progress</button>
+      <span id="shownCount" class="muted"></span>
+    </div>
+    <p class="note">Tick a trophy when you earn it — progress is saved in this browser (localStorage). Click any trophy to open its full guide. Names and descriptions are the official PlayStation wording; guides are written in our own words and cite their sources. 28 trophies are hidden on PSN and 18 are story spoilers.</p>
+    <ul id="list" class="list"></ul>
+  </section>
+
+  <section id="view-roadmap" class="view" hidden>
+    <h2>Roadmap to Platinum</h2>
+    <p class="note">Built from the official trophy descriptions. One playthrough is enough, there is no mission replay and no New Game+, and free roam continues after the story. Launch-era estimates put the platinum at roughly 200 hours, difficulty about 4/10 (PowerPyx). Never use cheats — they disable trophies and saving (PowerPyx, GameSpot). There are no online trophies.</p>
+    <ol class="stages" id="stages"></ol>
+    <h3>Order at a glance</h3>
+    <ol class="order" id="roadmapOrder"></ol>
+  </section>
+
+  <section id="view-missables" class="view" hidden>
+    <h2>Missable trophies</h2>
+    <p class="note">Only one trophy is flagged as missable by the launch-era guides (PowerPyx, GTABase). Everything else the guides describe can still be earned in free roam after the story. The warning below is the one that matters — do it early.</p>
+    <div id="missableList"></div>
+    <h3>Not missable — but do not leave them all to the end</h3>
+    <p class="note">GTABase warns that some stranger missions are only offered for a while. The side-character final missions (Andy, Kenton, Billy, Randy, Tyrone) and the 8 stranger strands are listed here so you can keep an eye on them while you play.</p>
+    <ul id="watchList" class="list"></ul>
+  </section>
+</main>
+
+<aside id="detail" class="detail" hidden aria-label="Trophy guide">
+  <button id="detailClose" type="button" aria-label="Close guide">✕ Close</button>
+  <div id="detailBody"></div>
+</aside>
+
+<footer>
+  <p>Names and descriptions: the official PlayStation trophy list, verified 19 Nov 2026 against Exophase and PSNProfiles (55/55 names, descriptions and grades match). Guides are original writing for this guide; sources are named beside each guide. No Rockstar Games logo or official artwork is used. This guide works fully offline.</p>
+  <p>Sources used throughout: <a href="https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/">Exophase</a> · <a href="https://psnprofiles.com/trophies/43531-grand-theft-auto-vi">PSNProfiles</a> · <a href="https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/">PowerPyx</a> · <a href="https://www.pushsquare.com/guides/gta-6-trophy-guide-and-roadmap">Push Square</a> · <a href="https://www.gtabase.com/articles/gta-6/gta-6-achievements-trophies-list-ps5-xbox-series">GTABase</a></p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

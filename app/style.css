@@ -1,0 +1,127 @@
+/* Leonida Trophy Guide — paper light theme, coral accent; dark theme via [data-theme="dark"].
+   System fonts only. No external resources. */
+:root {
+  --bg: #faf6ef;
+  --surface: #fffdf8;
+  --surface2: #f3ecdd;
+  --text: #241f1a;
+  --muted: #6b6156;
+  --border: #e2d7c3;
+  --accent: #e4572e;
+  --accent-soft: #fbe9e2;
+  --accent-text: #b23a17;
+  --gold: #a67c00;
+  --silver: #5f6b7a;
+  --bronze: #8a5a2b;
+  --platinum: #3f6d8e;
+  --good: #2e7d4f;
+  --warn: #9a6a00;
+  --warn-bg: #fff3cd;
+  --shadow: 0 1px 4px rgba(36, 31, 26, 0.12);
+}
+[data-theme="dark"] {
+  --bg: #1d1a17;
+  --surface: #26211d;
+  --surface2: #322b25;
+  --text: #f0e9df;
+  --muted: #b3a897;
+  --border: #453b32;
+  --accent: #ff7a52;
+  --accent-soft: #40261c;
+  --accent-text: #ffb59d;
+  --gold: #e0b13c;
+  --silver: #aeb9c6;
+  --bronze: #d69a63;
+  --platinum: #8fc3e8;
+  --good: #6fce8f;
+  --warn: #e8c15a;
+  --warn-bg: #3a2f10;
+  --shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+* { box-sizing: border-box; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  margin: 0 auto; max-width: 1020px; padding: 20px 18px 48px;
+  background: var(--bg); color: var(--text); line-height: 1.5;
+}
+.top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+h1 { margin: 0; font-size: 30px; letter-spacing: -0.5px; }
+h1::after { content: ""; display: block; width: 96px; height: 5px; background: var(--accent); border-radius: 3px; margin-top: 6px; }
+.sub { color: var(--muted); margin: 6px 0 0; }
+button, select, input[type="search"] {
+  font: inherit; color: var(--text); background: var(--surface);
+  border: 1px solid var(--border); border-radius: 8px; padding: 7px 10px;
+}
+button { cursor: pointer; }
+button:hover { border-color: var(--accent); }
+.tabs button.active { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 600; }
+.progress { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; margin: 18px 0; box-shadow: var(--shadow); }
+.big { font-size: 34px; font-weight: 700; }
+.big .of { font-size: 17px; font-weight: 400; color: var(--muted); margin-left: 6px; }
+.bar { height: 12px; background: var(--surface2); border-radius: 6px; overflow: hidden; margin: 10px 0; }
+#barFill { height: 100%; width: 0%; background: var(--accent); transition: width 0.3s; }
+.gradebars { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px 18px; font-size: 13px; }
+.gradebars .gb { display: flex; justify-content: space-between; gap: 8px; }
+.gradebars .gb b { font-weight: 600; }
+.nextup { margin: 10px 0 0; }
+.nextup b { color: var(--accent-text); }
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 16px; }
+.view h2 { margin: 4px 0 8px; font-size: 24px; }
+.controls { display: flex; gap: 10px; flex-wrap: wrap; align-items: end; margin-bottom: 10px; }
+.controls label { font-size: 13px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
+.controls label.check { flex-direction: row; align-items: center; gap: 6px; color: var(--text); font-size: 14px; }
+.search input { min-width: 230px; }
+.actions { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-bottom: 8px; }
+.import { cursor: pointer; font-size: 14px; }
+.import input { display: none; }
+.muted { color: var(--muted); font-size: 13px; }
+.note { color: var(--muted); font-size: 14px; }
+.list { list-style: none; margin: 0; padding: 0; }
+.card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 12px 14px; margin-bottom: 10px; box-shadow: var(--shadow);
+}
+.card.earned { border-color: var(--good); }
+.card-head { display: flex; gap: 10px; align-items: flex-start; }
+.card-head input[type="checkbox"] { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent); flex: none; }
+.card-title { flex: 1; min-width: 0; }
+.card-title h3 { margin: 0; font-size: 17px; }
+.card-title h3 button { all: unset; cursor: pointer; color: var(--text); font-weight: 700; }
+.card-title h3 button:hover { color: var(--accent-text); text-decoration: underline; }
+.desc { margin: 2px 0 0; color: var(--muted); font-size: 14px; font-style: italic; }
+.tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 7px; }
+.tag { font-size: 12px; padding: 2px 8px; border-radius: 20px; background: var(--surface2); border: 1px solid var(--border); }
+.tag.platinum { color: var(--platinum); border-color: var(--platinum); }
+.tag.gold { color: var(--gold); border-color: var(--gold); }
+.tag.silver { color: var(--silver); border-color: var(--silver); }
+.tag.bronze { color: var(--bronze); border-color: var(--bronze); }
+.tag.missable { background: var(--warn-bg); color: var(--warn); border-color: var(--warn); font-weight: 700; }
+.tag.unconfirmed { background: var(--warn-bg); color: var(--warn); border-color: var(--warn); font-weight: 700; }
+.tag.hidden-t { color: var(--muted); }
+.guide { margin: 8px 0 0; font-size: 14px; }
+.guide .src { font-size: 12px; color: var(--muted); }
+.guide .src a { color: var(--accent-text); }
+.spoiler-hidden { color: var(--muted); font-style: italic; }
+.stages { padding-left: 22px; }
+.stages li { margin-bottom: 14px; }
+.stages h3 { margin: 0 0 4px; font-size: 17px; }
+.stages p { margin: 0 0 4px; }
+.stages .ids { font-size: 13px; color: var(--muted); }
+.order { padding-left: 22px; columns: 2; column-gap: 28px; font-size: 14px; }
+.order li { margin-bottom: 4px; break-inside: avoid; }
+.detail {
+  position: fixed; top: 0; right: 0; bottom: 0; width: min(460px, 94vw);
+  background: var(--surface); border-left: 1px solid var(--border);
+  box-shadow: -4px 0 18px rgba(0, 0, 0, 0.2); padding: 18px; overflow-y: auto; z-index: 10;
+}
+.detail h2 { margin: 6px 0 4px; font-size: 22px; }
+.detail .desc { font-size: 15px; }
+.detail .guide { font-size: 15px; }
+.detail .facts { font-size: 14px; background: var(--surface2); border-radius: 8px; padding: 10px 12px; margin: 12px 0; }
+footer { margin-top: 32px; border-top: 1px solid var(--border); padding-top: 14px; font-size: 13px; color: var(--muted); }
+footer a { color: var(--accent-text); }
+@media (max-width: 640px) {
+  .order { columns: 1; }
+  h1 { font-size: 24px; }
+  .big { font-size: 28px; }
+}
